@@ -17,6 +17,9 @@ final ValueNotifier<MediaItem?> selectedImageNotifier =
 final ValueNotifier<List<MediaGroup>?> cachedMediaGroupsNotifier =
     ValueNotifier<List<MediaGroup>?>(null);
 
+// Sunucudan gelen sayfalama bağımsız toplam medya sayısı.
+final ValueNotifier<int?> totalMediaCountNotifier = ValueNotifier<int?>(null);
+
 final ValueNotifier<bool> isLoadingMediaNotifier = ValueNotifier<bool>(false);
 final ValueNotifier<String?> mediaErrorNotifier = ValueNotifier<String?>(null);
 
