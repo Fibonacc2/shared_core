@@ -23,6 +23,11 @@ class ApiService {
     debugPrint("📥 API Yanıt Body: ${response.body}");
 
     if (response.statusCode == 200) {
+      // PHP'nin X-Total-Count başlığından tüm kullanıcı medyalarının sayısını al.
+      // Eski backend sürümleriyle geçici uyumluluk için başlık yoksa null kalır.
+      totalMediaCountNotifier.value =
+          int.tryParse(response.headers['x-total-count'] ?? '');
+
       // Eğer PHP boş dizi [] döndürürse hata vermemesi için kontrol
       if (response.body.trim() == "[]" || response.body.trim().isEmpty) {
         return [];
